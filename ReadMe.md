@@ -24,6 +24,22 @@ To use either approach, instantiate the appropriate reader or comparator, then c
     - Create a `defaultReader` with a specific comparator.
     - Use the `Get` method to retrieve values based on the provided comparison logic.
 
+    ```
+    r := comparisonStrategySolution.NewReader()
+    result := r.Get("hello")
+   
+    r := comparisonStrategySolution.NewReader().WithComparator(comparisonStrategySolution.NewCaseInsensitiveComparator())
+    result := r.Get("hello")
+    ```
+
 2. **Inheritance-based Reader**:
     - Choose between `defaultReader` or `caseInsensitiveReader` for the desired key sensitivity.
     - Call `Get` to retrieve values, with comparison behavior defined by the reader type.
+
+    ```
+    r := inheritanceSolution.NewReader()
+    result := r.Get("hello")
+
+    r := inheritanceSolution.NewCaseInsensitiveReader()
+    result := r.Get("hello")
+    ```
